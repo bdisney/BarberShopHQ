@@ -32,6 +32,10 @@ end
 
 post '/visit' do
 
+	c = Client.new params[:client]
+	c.save
+
+=begin Ламерский? способ добавления Клиентов в таблицу
 	@name = params[:name]
 	@phone = params[:phone]
 	@dateStamp = params[:dateStamp]
@@ -41,7 +45,8 @@ post '/visit' do
 	Client.create :name => @name, :phone => @phone, :dateStamp => @dateStamp, :barber => @barber, :color => @color
 
 	erb "Спасибо, #{@name}! #{@barber} с нетерпением будет ждать Вас #{@dateStamp}!"
-
+=end
+erb 'Спасибо, Вы записались!'
 end
 
 get '/contacts' do

@@ -11,7 +11,7 @@ $('#datetimepicker').datetimepicker();
 
 <form action="/visit" method="POST" role="form">
 <label>Доступные для записи он-лайн мастера:</label>
-  <select class="form-control" type='text'  placeholder='Выберите мастера' name='barber' autofocus>
+  <select class="form-control" type='text'  placeholder='Выберите мастера' name='client[barber]' autofocus>
 <!-- Подставляет из БД (таблица Barbers) список парикмахеров, с запоминанием выбора пользователя из списка-->
       <% @barbers.each do |item| %>
         <option  <%= @barber == item['name'] ? 'selected' : '' %>><%= item['name']%></option>
@@ -21,22 +21,22 @@ $('#datetimepicker').datetimepicker();
 
   <div class="form-group">
     <label>Ваше имя:</label>
-    <input name="name" type="text" class="form-control" placeholder="Ваше имя" value="<%=@name %>" >
+    <input name="client[name]" type="text" class="form-control" placeholder="Ваше имя" value="" >
   </div>
 
   <div class="form-group">
     <label>Ваш номер телефона:</label>
-    <input name="phone" type="text" class="form-control" placeholder="Введите номер" value="<%=@phone %>" >
+    <input name="client[phone]" type="text" class="form-control" placeholder="Введите номер" value="" >
   </div>
 
   <div class="form-group">
     <label>Когда и во сколько вас ждать?:</label>
-    <input id="datetimepicker" name="dateStamp" type="text" class="form-control" placeholder="Введите дату и время" value="<%=@dateStamp %>" >
+    <input id="datetimepicker" name="client[dateStamp]" type="text" class="form-control" placeholder="Введите дату и время" value="" >
   </div>
 
     <div class="form-group">
     <label>В какие цвета хотите себя окрасить: </label>
-    <select id="color" name="color">
+    <select id="color" name="client[color]">
       <option value="#7bd148">Green</option>
       <option value="#5484ed">Bold blue</option>
       <option value="#a4bdfc">Blue</option>
