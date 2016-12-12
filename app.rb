@@ -50,6 +50,12 @@ end
 
 post '/contacts' do 
 
+	@name = params[:name]
+	@phone = params[:phone]
+	@message = params[:message]
 
+	Contact.create :name => @name, :phone => @phone, :message => @message
+
+	erb "#{@name}, благодарим Вас за обращение. В ближайшее время мы свяжемся с вами по указанному телефону. Или не свяжемся!"
 
 end
