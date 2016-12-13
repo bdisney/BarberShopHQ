@@ -32,6 +32,8 @@ end
 
 post '/visit' do
 
+	# Запись параметров Клиента в БД
+
 	c = Client.new params[:client]
 	c.save
 
@@ -55,12 +57,9 @@ end
 
 post '/contacts' do 
 
-	@name = params[:name]
-	@phone = params[:phone]
-	@message = params[:message]
+	m = Contact.new params[:contact]
+	m.save
 
-	Contact.create :name => @name, :phone => @phone, :message => @message
-
-	erb "#{@name}, благодарим Вас за обращение. В ближайшее время мы свяжемся с вами по указанному телефону. Или не свяжемся!"
+	erb "Благодарим Вас за обращение. В ближайшее время мы свяжемся с вами по указанному телефону. Или не свяжемся!"
 
 end

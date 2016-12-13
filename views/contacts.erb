@@ -17,10 +17,10 @@
 
 <form action="/contacts" method="POST" role="form">
 	<p>Как Вас зовут?</p>
-	<input type="text" name="name" class="form-control" placeholder="Укажите Ваше имя" autofocus><br />
+	<input type="text" name="contact[name]" class="form-control" placeholder="Укажите Ваше имя" autofocus><br />
 	<p>Укажите телефон для связи:</p>
-	<input type="text" name="phone" class="form-control" placeholder="Номер телефона"><br />
+	<input type="text" name="contact[phone]" class="form-control" placeholder="Номер телефона"><br />
 	<p>Ваше обращение:</p>
-	<textarea class="form-control" type='text' name="message"rows="2" placeholder="Текст Вашего обращения"></textarea>
+	<textarea class="form-control" type='text' name="contact[message]"rows="2" placeholder="Текст Вашего обращения"></textarea>
 	<button class="btn btn-default" type="submit">Отправить</button>
 </form>
