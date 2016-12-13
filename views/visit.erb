@@ -21,17 +21,17 @@ $('#datetimepicker').datetimepicker();
 
   <div class="form-group">
     <label>Ваше имя:</label>
-    <input name="client[name]" type="text" class="form-control" placeholder="Ваше имя" value="" >
+    <input name="client[name]" type="text" class="form-control" placeholder="Ваше имя" value="<%= @c.name %>" >
   </div>
 
   <div class="form-group">
     <label>Ваш номер телефона:</label>
-    <input name="client[phone]" type="text" class="form-control" placeholder="Введите номер" value="" >
+    <input name="client[phone]" type="text" class="form-control" placeholder="Введите номер" value="<%= @c.phone %>" >
   </div>
 
   <div class="form-group">
     <label>Когда и во сколько вас ждать?:</label>
-    <input id="datetimepicker" name="client[dateStamp]" type="text" class="form-control" placeholder="Введите дату и время" value="" >
+    <input id="datetimepicker" name="<%= @c.dateStamp %>" type="text" class="form-control" placeholder="Введите дату и время" value="" >
   </div>
 
     <div class="form-group">

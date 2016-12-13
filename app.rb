@@ -29,6 +29,7 @@ get '/' do
 end
 
 get '/visit' do
+	@c = Client.new
 	erb :visit
 end
 
@@ -36,11 +37,11 @@ post '/visit' do
 
 	# Запись параметров Клиента в БД
 
-	c = Client.new params[:client]
-	if c.save
+	@c = Client.new params[:client]
+	if @c.save
 		erb 'Спасибо, Вы записались!'
 	else
-		@error = c.errors.full_messages.first
+		@error = @c.errors.full_messages.first
 		erb :visit
 	end
 
