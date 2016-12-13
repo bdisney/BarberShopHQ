@@ -7,6 +7,10 @@ require 'sinatra/activerecord'
 set :database, "sqlite3:barbershop.db"
 
 class Client < ActiveRecord::Base 
+	validates :name, :presence => true # или presence: true
+	validates :phone, presence: true 
+	validates :dateStamp, presence: true 
+	validates :color, presence: true 
 end
 
 class Barber < ActiveRecord::Base 
@@ -14,7 +18,6 @@ end
 
 class Contact < ActiveRecord::Base
 end
-
 
 before  do
 	@barbers = Barber.all
@@ -24,7 +27,6 @@ get '/' do
 	@barbers = Barber.order "created_at DESC"
 	erb :index
 end
-
 
 get '/visit' do
 	erb :visit
@@ -48,7 +50,8 @@ post '/visit' do
 
 	erb "Спасибо, #{@name}! #{@barber} с нетерпением будет ждать Вас #{@dateStamp}!"
 =end
-erb 'Спасибо, Вы записались!'
+	erb 'Спасибо, Вы записались!'
+
 end
 
 get '/contacts' do
