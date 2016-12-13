@@ -37,7 +37,11 @@ post '/visit' do
 	# Запись параметров Клиента в БД
 
 	c = Client.new params[:client]
-	c.save
+	if c.save
+		erb 'Спасибо, Вы записались!'
+	else
+		erb 'Что-то пошло не так!'
+	end
 
 =begin Ламерский? способ добавления Клиентов в таблицу
 	@name = params[:name]
@@ -50,8 +54,6 @@ post '/visit' do
 
 	erb "Спасибо, #{@name}! #{@barber} с нетерпением будет ждать Вас #{@dateStamp}!"
 =end
-	erb 'Спасибо, Вы записались!'
-
 end
 
 get '/contacts' do
