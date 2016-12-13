@@ -40,7 +40,8 @@ post '/visit' do
 	if c.save
 		erb 'Спасибо, Вы записались!'
 	else
-		erb 'Что-то пошло не так!'
+		@error = c.errors.full_messages.first
+		erb :visit
 	end
 
 =begin Ламерский? способ добавления Клиентов в таблицу
